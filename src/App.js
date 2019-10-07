@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+import { Header, Footer, Main, GlobalStyle, Container } from "./styles.js";
+
+import "normalize.css";
+import "milligram";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <GlobalStyle />
+
+      <Header>
+        <h1>Reactflix</h1>
+      </Header>
+
+      <Main>Content</Main>
+
+      <Footer>&copy; 2019</Footer>
+    </Container>
   );
 }
 
