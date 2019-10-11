@@ -5,6 +5,7 @@ import "milligram";
 
 import { Header, Footer, Main, GlobalStyle, Container } from "./styles.js";
 import VideosList from './components/VideosList'
+import VideosSingle from "./components/VideosSingle/index.js";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       </Header>
 
       <Main>
+        <VideosSingle />
         <VideosList />
       </Main>
 
