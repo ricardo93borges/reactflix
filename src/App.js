@@ -3,9 +3,11 @@ import React from "react";
 import "normalize.css";
 import "milligram";
 
-import { Header, Footer, Main, GlobalStyle, Container } from "./styles.js";
+import { Header, Footer, Main, GlobalStyle, Container, HeaderTitle } from "./styles.js";
 import VideosList from './components/VideosList'
 import VideosSingle from "./components/VideosSingle/index.js";
+import RegisterVideo from "./components/RegisterVideo/index.js";
+import RegisterButton from "./components/RegisterButton/index.js";
 
 function App() {
   return (
@@ -13,10 +15,12 @@ function App() {
       <GlobalStyle />
 
       <Header>
-        <h1>Reactflix</h1>
+        <HeaderTitle>Reactflix</HeaderTitle>
+        <RegisterButton />
       </Header>
 
       <Main>
+        <RegisterVideo />
         <VideosSingle />
         <VideosList />
       </Main>
