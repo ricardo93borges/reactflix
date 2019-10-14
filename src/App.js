@@ -1,33 +1,37 @@
 import React from "react";
+import { connect } from 'react-redux'
 
 import "normalize.css";
 import "milligram";
 
-import { Header, Footer, Main, GlobalStyle, Container, HeaderTitle } from "./styles.js";
+import { Main, GlobalStyle, Container } from "./styles.js";
 import VideosList from './components/VideosList'
 import VideosSingle from "./components/VideosSingle/index.js";
 import RegisterVideo from "./components/RegisterVideo/index.js";
-import RegisterButton from "./components/RegisterButton/index.js";
+import Header from "./components/Header/index.js";
+import Footer from "./components/Footer/index.js";
 
-function App() {
+function App({ isRegisterVideoFormOpened }) {
   return (
     <Container>
       <GlobalStyle />
 
-      <Header>
-        <HeaderTitle>Reactflix</HeaderTitle>
-        <RegisterButton />
-      </Header>
+      <Header />
 
       <Main>
-        <RegisterVideo />
+        {isRegisterVideoFormOpened && <RegisterVideo />}
         <VideosSingle />
         <VideosList />
       </Main>
 
-      <Footer>&copy; 2019</Footer>
+      <Footer />
+
     </Container>
   );
 }
 
-export default App;
+const mapStateToProps = state => ({
+  isRegisterVideoFormOpened: state.ui.isRegisterVideoFormOpened
+});
+
+export default connect(mapStateToProps)(App);

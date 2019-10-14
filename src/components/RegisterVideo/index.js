@@ -4,7 +4,9 @@ import { connect } from 'react-redux'
 import { Form, ButtonClose } from './style.js';
 import { registerVideo } from '../../reducers/videos/actions.js';
 
-const RegisterVideo = ({ onSubmit }) => {
+import { closeRegisterVideos } from '../../reducers/ui/actions'
+
+const RegisterVideo = ({ onSubmit, onCloseRegisterVideo }) => {
     const [id, setId] = useState('')
     const [title, setTitle] = useState('')
 
@@ -37,7 +39,7 @@ const RegisterVideo = ({ onSubmit }) => {
 
             <button type='submit' onClick={handleSubmit}>Register</button>
 
-            <ButtonClose type='button'>&times;</ButtonClose>
+            <ButtonClose type='button' onClick={onCloseRegisterVideo} >&times;</ButtonClose>
         </Form >
     )
 }
@@ -45,7 +47,8 @@ const RegisterVideo = ({ onSubmit }) => {
 const mapDispatchToProps = (dispatch) => ({
     onSubmit: async (id, title) => {
         await dispatch(registerVideo(id, title))
-    }
+    },
+    onCloseRegisterVideo: () => dispatch(closeRegisterVideos())
 })
 
 export default connect(null, mapDispatchToProps)(RegisterVideo)

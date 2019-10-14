@@ -2,10 +2,10 @@ import React from 'react'
 
 import { Button } from './style.js';
 
-const RegisterButton = () => {
+const RegisterButton = ({ onClick }) => {
 
     return (
-        <Button>Register video</Button>
+        <Button onClick={onClick}>Register video</Button>
     )
 }
 

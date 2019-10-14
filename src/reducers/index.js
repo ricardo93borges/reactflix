@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
 import videos from './videos'
+import ui from './ui'
 
 const reducers = combineReducers({
-  videos
+  videos,
+  ui
 });
 
 const rootReducer = (state, action) => {
