@@ -11,7 +11,8 @@ import RegisterVideo from "./components/RegisterVideo/index.js";
 import Header from "./components/Header/index.js";
 import Footer from "./components/Footer/index.js";
 
-function App({ isRegisterVideoFormOpened }) {
+function App({ isRegisterVideoFormOpened, videoSingleId, videos }) {
+
   return (
     <Container>
       <GlobalStyle />
@@ -20,7 +21,7 @@ function App({ isRegisterVideoFormOpened }) {
 
       <Main>
         {isRegisterVideoFormOpened && <RegisterVideo />}
-        <VideosSingle />
+        {videoSingleId && <VideosSingle id={videoSingleId} title={videos[videoSingleId]} />}
         <VideosList />
       </Main>
 
@@ -31,7 +32,9 @@ function App({ isRegisterVideoFormOpened }) {
 }
 
 const mapStateToProps = state => ({
-  isRegisterVideoFormOpened: state.ui.isRegisterVideoFormOpened
+  isRegisterVideoFormOpened: state.ui.isRegisterVideoFormOpened,
+  videoSingleId: state.videoSingle,
+  videos: state.videos
 });
 
 export default connect(mapStateToProps)(App);

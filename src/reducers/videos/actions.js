@@ -14,3 +14,12 @@ export const addVideo = (id, title) => ({
     type: ADD_VIDEO,
     payload: { id, title }
 })
+
+export const fetchVideos = () => (dispatch) => {
+    db.ref('videos').on('value', (snapshot) => {
+        snapshot.forEach(child => {
+            const { id, title } = child.val()
+            dispatch(addVideo(id, title))
+        })
+    })
+}
