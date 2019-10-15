@@ -14,4 +14,5 @@ export const Container = styled.header`
 export const HeaderTitle = styled.header`
   margin-bottom: 0;
   color: #FFF;
+  font-size: 2em;
 `;

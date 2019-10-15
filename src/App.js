@@ -21,7 +21,7 @@ function App({ isRegisterVideoFormOpened, videoSingleId, videos }) {
 
       <Main>
         {isRegisterVideoFormOpened && <RegisterVideo />}
-        {videoSingleId && <VideosSingle id={videoSingleId} title={videos[videoSingleId]} />}
+        {videoSingleId && <VideosSingle id={videoSingleId} title={videos[videoSingleId].title} />}
         <VideosList />
       </Main>
 
